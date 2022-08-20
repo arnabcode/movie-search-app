@@ -2,9 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { IMGPATH } from "../utils/constants";
 
-export default function ListItemComponent({ movie }) {
+export default function ListItemComponent({ movie, setMovie }) {
   return (
-    <Movie image={IMGPATH + movie.poster_path}>
+    <Movie
+      image={IMGPATH + movie.poster_path}
+      onClick={() => setMovie(movie.id)}
+    >
       {/* <img src={IMGPATH + movie.poster_path} alt={movie.title} /> */}
       <MovieInfo>
         <Title>{movie.title}</Title>
@@ -49,7 +52,7 @@ const OverView = styled.span`
   text-align: right;
   margin: 0.3rem 0;
   text-align: right;
-
+  overflow: hidden;
   width: 100%;
   height: 0%;
 `;
@@ -69,17 +72,18 @@ const MovieInfo = styled.div`
   width: 30%;
   transition: width 0.3s ease-in;
   background: rgba(0, 0, 0, 0.6);
+
   ${OverView} {
-    visibility: hidden;
-    transition: visibility 0.3s ease-in;
-    transition: height 0.3s ease-in;
+    transition: height 0.5s ease-in;
+    transition: opacity 0.8s ease-in;
+    opacity: 0;
   }
   &:hover {
     background: rgba(0, 0, 0, 0.7);
     width: 95%;
     ${OverView} {
-      visibility: visible;
-      height: 40%;
+      height: 50%;
+      opacity: 1;
     }
   }
 `;

@@ -10,12 +10,15 @@ export default function SearchComponent({ value, setValue }) {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
+      <StyledButton type="submit" form="form">
+        Search
+      </StyledButton>
     </StyledForm>
   );
 }
 
 const StyledForm = styled.div`
-  // border: 1px solid black;
+  width: 60%;
 `;
 
 const Input = styled.input`
@@ -28,10 +31,20 @@ const Input = styled.input`
   font-family: inherit;
   font-size: 1rem;
   padding: 0.5rem 1rem;
-
+  width: 40%;
+  height: 3rem;
   &:focus {
     outline: none;
     border: 2px solid blue;
     color: blue;
   }
+`;
+
+const StyledButton = styled.button`
+  width: 10%;
+  height: 2rem;
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  border-color: blue;
 `;

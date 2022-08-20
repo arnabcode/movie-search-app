@@ -6,11 +6,14 @@ import ListComponent from "../components/ListComponent";
 import DetailComponent from "../components/DetailComponent";
 import Loader from "../components/Loader";
 
-import { searchMovies } from "../utils/api-functions";
+import { searchMovies, getMovieDetails } from "../utils/api-functions";
 export default function MainPage() {
   const [keyword, setkeyword] = useState("");
   const [movies, setMovies] = useState([]);
   const [searchMoviesLoading, setSearchMoviesLoading] = useState(false);
+  const [movieLoading, setMovieLoading] = useState(false);
+  const [movieId, setMovieId] = useState(null);
+  const [movieData, setMovieData] = useState(null);
 
   useEffect(() => {
     if (keyword !== "") {
@@ -29,14 +32,35 @@ export default function MainPage() {
       }, 3000);
     }
   }, [keyword]);
+
+  useEffect(() => {
+    if (movieId !== null) {
+      setMovieLoading(true);
+      getMovieDetails(movieId)
+        .then((data) => {
+          setMovieData(data);
+          setMovieLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setMovieLoading(false);
+        });
+    }
+  }, [movieId]);
+
   return (
     <ContainerComponent>
       <Header>
+        <AppTitle>Movie Search app</AppTitle>
         <SearchComponent value={keyword} setValue={setkeyword} />
       </Header>
       <MoviesContainer>
-        <ListComponent movies={movies} loading={searchMoviesLoading} />
-        <DetailComponent />
+        <ListComponent
+          movies={movies}
+          loading={searchMoviesLoading}
+          setMovie={setMovieId}
+        />
+        <DetailComponent data={movieData} loading={movieLoading} />
       </MoviesContainer>
     </ContainerComponent>
   );
@@ -44,16 +68,25 @@ export default function MainPage() {
 
 const Header = styled.div`
   grid-column: col / span 12;
-  border: 1px solid black;
-  display: grid;
-  place-items: center;
+
+  display: flex;
+
   height: 15vh;
 `;
 
 const MoviesContainer = styled.div`
   grid-column: col / span 12;
-  background-color: #f5e5f5;
+
   display: grid;
   grid-template-columns: repeat(12, [col] 1fr);
   height: 85vh;
+`;
+
+const AppTitle = styled.div`
+  width: 30%;
+  font-size: 2rem;
+  text-align: center;
+  color: #0303fc;
+  font-weight: bold;
+  align-self: center;
 `;
