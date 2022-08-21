@@ -84,9 +84,11 @@ const MoviesContainer = styled.div`
 
 const AppTitle = styled.div`
   width: 30%;
-  font-size: 2rem;
+  font-size: 2.5rem;
   text-align: center;
   color: #0303fc;
   font-weight: bold;
   align-self: center;
+
+  text-shadow: 0px 0px 5px #fff;
 `;

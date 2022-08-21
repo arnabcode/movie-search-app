@@ -19,13 +19,20 @@ export default function SearchComponent({ value, setValue }) {
 
 const StyledForm = styled.div`
   width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 const Input = styled.input`
   margin: 1rem;
   margin-left: 5rem;
   background-color: transparent;
-  border: 2px solid #e9e9ec;
+  border: 2px solid blue;
   border-radius: 5px;
   color: dark-grey;
   font-family: inherit;
@@ -35,16 +42,30 @@ const Input = styled.input`
   height: 3rem;
   &:focus {
     outline: none;
-    border: 2px solid blue;
-    color: blue;
+    border: 2px solid white;
+    color: white;
+  }
+  @media (max-width: 768px) {
+    width: 80%;
+    margin: auto;
+    padding: 0.5rem 1rem;
+    height: 2rem;
+    margin-top: 1rem;
   }
 `;
 
 const StyledButton = styled.button`
-  width: 10%;
-  height: 2rem;
+  width: fit-content;
+  padding: 0.7rem 1.5rem;
+
   background-color: blue;
   border-radius: 5px;
   color: white;
   border-color: blue;
+
+  @media (max-width: 768px) {
+    visibility: hidden;
+    width: 0%;
+    padding: 0;
+  }
 `;

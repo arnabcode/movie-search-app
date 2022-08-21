@@ -60,6 +60,8 @@ const Container = styled.div`
 
 const Row = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Column = styled.div`
@@ -112,4 +114,8 @@ const Detail = styled.div`
   margin: 0.5rem auto;
 
   width: 90%;
+
+  @media (max-width: 768px) {
+    grid-column: col 1 / span 12;
+  }
 `;

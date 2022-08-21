@@ -31,7 +31,7 @@ function getColorByRate(vote) {
   }
 }
 
-const Movie = styled.div`
+const Movie = styled.li`
   background-image: url(${(props) => props.image});
   background-size: cover;
   border-radius: 3px;
@@ -41,9 +41,20 @@ const Movie = styled.div`
   margin: 0.5rem auto;
   justify-content: center;
   align-content: center;
-  width: 90%;
+  width: 100%;
   height: 10rem;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.7);
+  }
+
+  @media (max-width: 768px) {
+    margin: 0.5rem 1rem;
+    width: 40%;
+    float: left;
+  }
 `;
 
 const OverView = styled.span`
@@ -85,6 +96,10 @@ const MovieInfo = styled.div`
       height: 50%;
       opacity: 1;
     }
+  }
+
+  @media (max-width: 768px) {
+    width: 20rem;
   }
 `;
 

@@ -18,7 +18,8 @@ export default function ListComponent({ movies = [], loading, setMovie }) {
 
 const StyledList = styled.div`
   grid-column: col / span 3;
-  height: 100%;
-
+  height: 80vh;
+  padding: 0 20px;
+  overflow-y: scroll;
   position: relative;
 `;
