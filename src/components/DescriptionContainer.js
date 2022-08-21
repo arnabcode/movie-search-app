@@ -127,12 +127,15 @@ const OverViewContainer = styled.div`
   border: 1px dashed black;
   padding: 0.5rem;
   border-radius: 5px;
-  height: 20rem;
-  overflow: scroll;
+  height: 15rem;
+  overflow-y: scroll;
   div {
     margin-top: 1rem;
   }
 
+  @media (max-width: 1024px) {
+    height: 12rem;
+  }
   @media (max-width: 768px) {
     flex: 2;
     height: 15rem;
