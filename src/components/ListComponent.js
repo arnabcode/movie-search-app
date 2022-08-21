@@ -25,5 +25,10 @@ const StyledList = styled.div`
 
   @media (max-width: 768px) {
     grid-column: col 1 / span 12;
+    height: 60vh;
+    border: 3px dashed #ccc;
+    padding: 0.5rem;
+    margin: 1rem;
+    border-radius: 13px;
   }
 `;

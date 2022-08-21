@@ -14,38 +14,36 @@ function getColorByRate(vote) {
 export default function DescriptionContainer({ data }) {
   return (
     <Column>
-      <MovieTitle>{data.title} </MovieTitle>
-      {data.tagline && <TagLine>{data.tagline}</TagLine>}
+      <Row>
+        <MovieTitle>{data.title} </MovieTitle>
+        {data.tagline && <TagLine>{data.tagline}</TagLine>}
 
-      <ReleaseDate>
-        Released on: <span>{data.release_date}</span>
-      </ReleaseDate>
+        <ReleaseDate>
+          Released on: <span>{data.release_date}</span>
+        </ReleaseDate>
 
-      <RatingContainer rating={data.vote_average}>
-        <Star />
-        <span>{data.vote_average}</span>
-        /10
-      </RatingContainer>
-      <br />
-      <br />
+        <RatingContainer rating={data.vote_average}>
+          <Star />
+          <span>{data.vote_average}</span>
+          /10
+        </RatingContainer>
 
-      <GenreContainer>
-        {data.genres.map((genre) => (
-          <Genre key={genre.id}>{genre.name}</Genre>
-        ))}
-      </GenreContainer>
-      <LanguagesContainer>
-        Languages:
-        {data.spoken_languages.map((lan) => (
-          <Language>{lan.english_name}</Language>
-        ))}
-      </LanguagesContainer>
+        <GenreContainer>
+          {data.genres.map((genre) => (
+            <Genre key={genre.id}>{genre.name}</Genre>
+          ))}
+        </GenreContainer>
+        <LanguagesContainer>
+          Languages:
+          {data.spoken_languages.map((lan) => (
+            <Language>{lan.english_name}</Language>
+          ))}
+        </LanguagesContainer>
+      </Row>
       <OverViewContainer>
         <span>Overview</span>
-        <br />
-        <br />
 
-        {data.overview}
+        <div>{data.overview}</div>
       </OverViewContainer>
     </Column>
   );
@@ -58,8 +56,14 @@ const Container = styled.div`
 
 const Row = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+  flex: 1;
 `;
 
 const Column = styled.div`
@@ -74,8 +78,7 @@ const Column = styled.div`
   margin: 1rem;
 
   @media (max-width: 768px) {
-    width: 100%;
-    height: 50%;
+    flex-direction: row;
   }
 `;
 
@@ -89,18 +92,27 @@ const Genre = styled.div`
   font-size: 0.7rem;
   margin: 0.2rem;
   background-color: black;
+
+  @media (max-width: 768px) {
+    margin: 0rem;
+    padding: 0.2rem;
+    font-size: 0.7rem;
+  }
 `;
 
 const TagLine = styled.div`
   font-size: 0.9rem;
   padding: 0.3rem 1rem;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 const GenreContainer = styled.div`
   display: flex;
   padding: 0.1rem 1rem;
+  width: 100%;
   @media (max-width: 768px) {
-    visibility: hidden;
-    padding: 0;
+    justify-content: space-around;
   }
 `;
 
@@ -115,6 +127,16 @@ const OverViewContainer = styled.div`
   border: 1px dashed black;
   padding: 0.5rem;
   border-radius: 5px;
+  height: 20rem;
+  overflow: scroll;
+  div {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    flex: 2;
+    height: 15rem;
+  }
 `;
 
 const LanguagesContainer = styled.div`
@@ -138,6 +160,7 @@ const RatingContainer = styled.div`
   border-radius: 3px;
   width: fit-content;
   margin: 0.2rem 1rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -198,6 +221,11 @@ const MovieTitle = styled.div`
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
   }
   // border: 1px solid black;
 `;
