@@ -18,10 +18,11 @@ export default function SearchComponent({ value, setValue }) {
 }
 
 const StyledForm = styled.div`
-  width: 60%;
+  grid-column: col 1 / span 12;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
@@ -38,7 +39,7 @@ const Input = styled.input`
   font-family: inherit;
   font-size: 1rem;
   padding: 0.5rem 1rem;
-  width: 40%;
+  width: 50%;
   height: 3rem;
   &:focus {
     outline: none;

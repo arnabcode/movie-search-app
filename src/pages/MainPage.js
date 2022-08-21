@@ -72,6 +72,10 @@ const Header = styled.div`
   display: flex;
 
   height: 15vh;
+
+  @media (max-width: 768px) {
+    grid-column: col 1 / span 12;
+  }
 `;
 
 const MoviesContainer = styled.div`

@@ -62,6 +62,9 @@ const Row = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Column = styled.div`
@@ -86,6 +89,7 @@ const PosterContainer = styled.div`
   flex: 1;
   margin: 0.5rem;
   height: 20rem;
+  width: 20rem;
 `;
 const Center = styled.div`
   display: flex;

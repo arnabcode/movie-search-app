@@ -22,4 +22,8 @@ const StyledList = styled.div`
   padding: 0 20px;
   overflow-y: scroll;
   position: relative;
+
+  @media (max-width: 768px) {
+    grid-column: col 1 / span 12;
+  }
 `;
