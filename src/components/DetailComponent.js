@@ -35,11 +35,9 @@ const DataContainer = ({ data }) => {
     <>
       <BackgroundImage image={IMGPATH + data.poster_path} />
       <Container>
-        <Row>
-          <PosterContainer image={IMGPATH + data.backdrop_path} />
+        <PosterContainer image={IMGPATH + data.backdrop_path} />
 
-          <DescriptionContainer data={data} />
-        </Row>
+        <DescriptionContainer data={data} />
       </Container>
     </>
   );
@@ -47,24 +45,22 @@ const DataContainer = ({ data }) => {
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
-  align-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 2;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Row = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `;
 
 const Column = styled.div`

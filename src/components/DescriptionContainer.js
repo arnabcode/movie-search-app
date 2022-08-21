@@ -72,6 +72,11 @@ const Column = styled.div`
   width: 100%;
   background-color: rgba(255, 255, 255, 0.3);
   margin: 1rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 50%;
+  }
 `;
 
 const Genre = styled.div`

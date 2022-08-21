@@ -68,22 +68,25 @@ export default function MainPage() {
 
 const Header = styled.div`
   grid-column: col / span 12;
-
   display: flex;
-
   height: 15vh;
-
   @media (max-width: 768px) {
-    grid-column: col 1 / span 12;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
   }
 `;
 
 const MoviesContainer = styled.div`
   grid-column: col / span 12;
-
   display: grid;
   grid-template-columns: repeat(12, [col] 1fr);
   height: 85vh;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
 `;
 
 const AppTitle = styled.div`
@@ -95,4 +98,12 @@ const AppTitle = styled.div`
   align-self: center;
 
   text-shadow: 0px 0px 5px #fff;
+
+  @media (max-width: 1024px) {
+    width: 50%;
+    font-size: 2rem;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
