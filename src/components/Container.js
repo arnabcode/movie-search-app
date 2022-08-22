@@ -14,4 +14,8 @@ const Container = styled.div`
     rgb(32, 38, 57) 11.4%,
     rgb(63, 76, 119) 70.2%
   );
+
+  @media (max-width: 1024px) {
+    height: fit-content;
+  }
 `;

@@ -79,6 +79,7 @@ const Column = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: row;
+    height: fit-content;<
   }
 `;
 
@@ -92,11 +93,16 @@ const Genre = styled.div`
   font-size: 0.7rem;
   margin: 0.2rem;
   background-color: black;
-
+  display: grid;
+  place-items: center;
+  flex: 0 1 150px;
   @media (max-width: 768px) {
-    margin: 0rem;
-    padding: 0.2rem;
-    font-size: 0.7rem;
+    margin: 0.1rem;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.6rem;
+    border-radius: 25px;
+    grid-column: col 1 / span 4;
+    flex: 0 1 100px;
   }
 `;
 
@@ -109,10 +115,12 @@ const TagLine = styled.div`
 `;
 const GenreContainer = styled.div`
   display: flex;
-  padding: 0.1rem 1rem;
+  flex-wrap: wrap;
+  padding: 0rem 1rem;
   width: 100%;
   @media (max-width: 768px) {
-    justify-content: space-around;
+    justify-content: center;
+    width: 10rem;
   }
 `;
 
@@ -127,7 +135,10 @@ const OverViewContainer = styled.div`
   border: 1px dashed black;
   padding: 0.5rem;
   border-radius: 5px;
-  height: 15rem;
+  height: 10rem;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
   overflow-y: scroll;
   div {
     margin-top: 1rem;
@@ -135,6 +146,8 @@ const OverViewContainer = styled.div`
 
   @media (max-width: 1024px) {
     height: 12rem;
+    font-size: 0.7rem;
+    height: 8rem;
   }
   @media (max-width: 768px) {
     flex: 2;

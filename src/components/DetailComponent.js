@@ -114,7 +114,9 @@ const Detail = styled.div`
   margin: 0.5rem auto;
 
   width: 90%;
-
+  @media (max-width: 1024px) {
+    height: 70vh;
+  }
   @media (max-width: 768px) {
     grid-column: col 1 / span 12;
   }

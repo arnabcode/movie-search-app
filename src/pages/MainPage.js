@@ -82,6 +82,7 @@ const MoviesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, [col] 1fr);
   height: 85vh;
+
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -90,7 +91,7 @@ const MoviesContainer = styled.div`
 `;
 
 const AppTitle = styled.div`
-  width: 30%;
+  width: 40%;
   font-size: 2.5rem;
   text-align: center;
   color: #0303fc;
